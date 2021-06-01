@@ -27,13 +27,13 @@ export default function Tags({ tags, onUpdateTags, onDeleteTag }) {
               <>
                 <span key={index + tag}>
                   {tag}
-                  <button
+                  <DeleteButton
                     onClick={() => {
                       onDeleteTag(tag);
                     }}
                   >
                     x
-                  </button>
+                  </DeleteButton>
                 </span>
               </>
             ))}
@@ -55,17 +55,18 @@ const Tag = styled.section`
   flex-basis: content;
   gap: 0.2rem;
   font-family: sans-serif;
-  border: 2px groove green;
+  border: 2px groove hsl(197, 71%, 73%);
   padding: 0.5rem;
 
   input {
     display: inline-flex;
     padding: 0.5rem;
+    margin: 0.4rem;
   }
 
   span {
     margin: 0.2rem;
-    background: green;
+    background: hsl(197, 71%, 73%);
     color: ivory;
     padding: 0.3rem;
     border-radius: 0.3rem;
@@ -75,4 +76,11 @@ const Tag = styled.section`
 const TagCloud = styled.article`
   display: inline-flex;
   flex-wrap: wrap;
+`;
+
+const DeleteButton = styled.button`
+  background: transparent;
+  border: none;
+  padding: 0.2rem;
+  margin-left: 0.3rem;
 `;

@@ -92,9 +92,9 @@ function App() {
   }
 
   return (
-    <div>
+    <Div>
       <HeaderNavigation />
-      <h1>Soccer App</h1>
+      <H1>Soccer App</H1>
       <Grid>
         <Switch>
           <Route exact path="/">
@@ -117,7 +117,12 @@ function App() {
           <Route path="/player">
             <Players>
               {players.map((player) => (
-                <PlayerCard player={player} onaddBuyingList={addBuyingList} />
+                <PlayerCard
+                  player={player}
+                  onEditPlayer={editPlayer}
+                  onDeletePlayer={deletePlayer}
+                  onaddBuyingList={addBuyingList}
+                />
               ))}
             </Players>
           </Route>
@@ -126,7 +131,7 @@ function App() {
           </Route>
         </Switch>
       </Grid>
-    </div>
+    </Div>
   );
 }
 
@@ -147,4 +152,13 @@ const Players = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+`;
+
+const H1 = styled.h1`
+  display: flex;
+  place-items: center;
+`;
+
+const Div = styled.div`
+  margin-bottom: 3rem;
 `;
